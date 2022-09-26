@@ -7,15 +7,17 @@ import random
 from datetime import datetime, timedelta
 import requests
 import os
+from pathlib import Path
 
-
-male_name = pd.DataFrame(pd.read_excel("my_project/person_generator/app/data/name_male.xlsx"))
-female_name = pd.DataFrame(pd.read_excel("my_project/person_generator/app/data/name_female.xlsx"))
-male_surname = pd.DataFrame(pd.read_excel("my_project/person_generator/app/data/surname_male.xlsx"))
-female_surname = pd.DataFrame(pd.read_excel("my_project/person_generator/app/data/surname_female.xlsx"))
-mail_provider = pd.DataFrame(pd.read_excel("my_project/person_generator/app/data/mail_provider.xlsx"))
-job_list = pd.DataFrame(pd.read_excel("my_project/person_generator/app/data/job_list.xlsx"))
-citys_list = pd.DataFrame(pd.read_excel("my_project/person_generator/app/data/citys_poland.xlsx"))
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data/"
+male_name = pd.DataFrame(pd.read_excel( DATA_DIR / "name_male.xlsx"))
+female_name = pd.DataFrame(pd.read_excel( DATA_DIR / "name_female.xlsx"))
+male_surname = pd.DataFrame(pd.read_excel(DATA_DIR / "surname_male.xlsx"))
+female_surname = pd.DataFrame(pd.read_excel(DATA_DIR / "surname_female.xlsx"))
+mail_provider = pd.DataFrame(pd.read_excel(DATA_DIR / "mail_provider.xlsx"))
+job_list = pd.DataFrame(pd.read_excel(DATA_DIR / "job_list.xlsx"))
+citys_list = pd.DataFrame(pd.read_excel(DATA_DIR / "citys_poland.xlsx"))
 
 
 class Person():
@@ -123,3 +125,4 @@ class Person():
 if __name__ == "__main__":
     person = Person()
     print(person.__dict__)
+    print(DATA_DIR)
