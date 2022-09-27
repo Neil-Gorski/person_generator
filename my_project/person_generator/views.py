@@ -1,11 +1,13 @@
 import email
+from urllib.request import urlopen
 from django.shortcuts import render
 
 from .app.modul import person_generator
 from .models import Person
 
+
 # Create your views here.
-def index(request):
+def create_random_person(request):
     person = person_generator.Person()
     p = Person(gender=person.gender,
         name=person.name,
@@ -16,8 +18,9 @@ def index(request):
         job=person.job,
         weight=person.weight,
         phone=person.phone,
-        photo=person.photo,
+        image_url=person.photo,
         birthplace=person.place_of_birth)
     p.save()
+ 
 
     return render(request, "person_generator/person_generate.html", {"p": p})

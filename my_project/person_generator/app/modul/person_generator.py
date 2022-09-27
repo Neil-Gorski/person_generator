@@ -98,7 +98,7 @@ class Person():
         d2 = datetime.strptime(
             f"{now.day}/{now.month}/{now.year - age} {now.hour}:{now.second}", "%d/%m/%Y %H:%M")
         birthsday = self.get_random_date_between(d1, d2)
-        return age, birthsday.strftime("%Y-%m-%d %H:%M")
+        return age, birthsday
 
     def generate_mobile_phone_number(self):
         prefix = random.choice(

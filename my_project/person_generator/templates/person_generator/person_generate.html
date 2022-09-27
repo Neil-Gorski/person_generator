@@ -2,11 +2,23 @@
 
 
 {% block content %}
-<ul>
-    <li>{{ p.name}} {{ p.surname }}</li>
-    <li>{{ p.age }}</li>
-    <li>
-        <img src="{{ p.photo }}" alt="" style="width: 100px; boarder-radius: 50%;>
-    </li>
-</ul>
+<div class="card" style="width: 20rem;">
+    <img class="card-img-top" src="{{ p.image_url }}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{ p.name }} {{ p.surname }}</h5>
+      <p class="card-text">Born on {{ p.birthday_date|date:"M d, Y" }} at {{ p.birthday_date|time:"H:i" }} in {{ p.birthplace }}, Poland.</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Job: {{ p.job }}</li>
+      <li class="list-group-item">Age: {{ p.age }}</li>
+      <li class="list-group-item">Email: {{ p.email }}</li>
+      <li class="list-group-item">Phone: +48 {{ p.phone }}</li>
+      <li class="list-group-item">Weight: {{ p.weight }}</li>
+      
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
 {% endblock content %}
