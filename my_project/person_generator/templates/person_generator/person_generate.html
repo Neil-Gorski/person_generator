@@ -1,3 +1,12 @@
-{% block content %}
+{% extends './base.html' %}
 
+
+{% block content %}
+<ul>
+    <li>{{ p.name}} {{ p.surname }}</li>
+    <li>{{ p.age }}</li>
+    <li>
+        <img src="{{ p.photo }}" alt="" style="width: 100px; boarder-radius: 50%;>
+    </li>
+</ul>
 {% endblock content %}

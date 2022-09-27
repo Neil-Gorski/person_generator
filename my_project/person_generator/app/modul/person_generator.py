@@ -9,8 +9,8 @@ import requests
 import os
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-DATA_DIR = BASE_DIR / "data/"
+APP_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = APP_DIR / "data/"
 male_name = pd.DataFrame(pd.read_excel( DATA_DIR / "name_male.xlsx"))
 female_name = pd.DataFrame(pd.read_excel( DATA_DIR / "name_female.xlsx"))
 male_surname = pd.DataFrame(pd.read_excel(DATA_DIR / "surname_male.xlsx"))
@@ -98,7 +98,7 @@ class Person():
         d2 = datetime.strptime(
             f"{now.day}/{now.month}/{now.year - age} {now.hour}:{now.second}", "%d/%m/%Y %H:%M")
         birthsday = self.get_random_date_between(d1, d2)
-        return age, birthsday.strftime("%d.%m.%Y %H:%M")
+        return age, birthsday.strftime("%Y-%m-%d %H:%M")
 
     def generate_mobile_phone_number(self):
         prefix = random.choice(
@@ -124,5 +124,6 @@ class Person():
 
 if __name__ == "__main__":
     person = Person()
-    print(person.__dict__)
-    print(DATA_DIR)
+    # print(person.__dict__)
+    # print(DATA_DIR)
+    print(person.name + " " + person.surname)
