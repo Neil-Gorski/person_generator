@@ -1,0 +1,9 @@
+body {
+	/* background-image: url("/my_project/person_generator/static/person_generator/img/1666625.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+     */
+	background-image: url("C:\Code\privat\Python\Django_Person_Generator\my_project\person_generator\static\person_generator\img\1666625.jpg");
+	/* background: url("/my_project/person_generator/static/person_generator/img/1666625.jpg"); */
+	background-color: hwb(176 73% 16%);
+}

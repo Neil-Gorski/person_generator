@@ -29,9 +29,11 @@ class Person(models.Model):
     # image_file = models.ImageField(upload_to="photos/male/age/%Y/%m/%d/")
     birthplace = models.CharField(max_length=100)
     
-    
     def __str__(self):
         return self.name + " " + self.surname
+
+    class Meta:
+        ordering = ["surname", "gender", "name", "age"]
 
     # def get_remote_image(self):
     #     if self.image_url and not self.image_file:
