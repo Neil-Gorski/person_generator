@@ -126,4 +126,4 @@ if __name__ == "__main__":
     person = Person()
     # print(person.__dict__)
     # print(DATA_DIR)
-    print(person.name + " " + person.surname)
+    # print(person.name + " " + person.surname)

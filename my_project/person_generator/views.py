@@ -1,9 +1,11 @@
 import email
-from urllib.request import urlopen
 from django.shortcuts import render
 
 from .app.modul import person_generator
 from .models import Person
+from rest_framework import generics, permissions
+from .serializers import PersonSerializer
+import random
 
 
 # Create your views here.
@@ -23,4 +25,20 @@ def create_random_person(request):
     p.save()
  
 
-    return render(request, "person_generator/person_generate.html", {"p": p})
+    return render(request, "person_generator/new_person_generate.html", {"p": p})
+
+def list_all_persons(request):
+    persons = list(Person.objects.all())
+    persons = random.sample(persons, 15)
+    return render(request, "person_generator/person_list.html", {"persons": persons})
+
+class PersonsView(generics.ListAPIView):
+    queryset = Person.objects.all()
+    serializer_class = PersonSerializer
+    permission_classes = ()
+
+class PersonViewAPI(generics.RetrieveAPIView):
+    queryset = Person.objects.all()
+    serializer_class = PersonSerializer
+    permission_classes = ()
+    lookup_url_kwarg = "pk"
