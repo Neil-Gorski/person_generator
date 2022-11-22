@@ -29,7 +29,7 @@ def create_random_person(request):
 
 def list_all_persons(request):
     persons = list(Person.objects.all())
-    persons = random.sample(persons, 15)
+    persons = random.sample(persons, 24)
     return render(request, "person_generator/person_list.html", {"persons": persons})
 
 class PersonsView(generics.ListAPIView):
